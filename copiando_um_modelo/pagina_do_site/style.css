@@ -1,0 +1,50 @@
+body{
+    background-color:rgb(199, 206, 206);
+}
+.cabeçalho{
+    display: block;
+    color:forestgreen;
+    border-style: solid;
+    border-color: blue;
+    height: 120px;
+    background-color: navajowhite;
+    position: relative;
+    text-align: center;
+}
+#imagem01{
+    position: absolute;
+    left: 5%;
+    top: 7%;
+}
+#imagem02{
+    position: absolute;
+    right: 5%;
+    top: 7%;
+}
+#paragrafo01{
+    position: absolute;
+    top: 7%;
+    display: inline;
+}
+.subtitulo{
+    text-align: center;
+    font-size: larger;
+    background-color:cornflowerblue;
+    font-size: 30px;
+}
+.link{
+    padding-left: 2%;
+    padding-right: 2%;
+}
+.link:hover{
+    color: crimson;
+}
+.titulos{
+    color: black;
+    text-align: center;
+}
+.paragrafos{
+    color:mediumpurple;
+    text-align: center;
+    font-size: larger;
+}
