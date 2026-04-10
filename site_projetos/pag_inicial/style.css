@@ -1,0 +1,35 @@
+body{
+    text-align: center;
+    background-color: bisque;
+}
+p{
+    font-size: large;
+}
+img{
+    padding: 10px;
+}
+.corpo_site{
+    background-color: blanchedalmond;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+}
+.corpo_site div{
+    display: flex;
+    justify-content: center;
+    width: 180px;
+    padding: 30px;
+    background-color: burlywood;
+    border-radius: 5px;
+    font-size: larger;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.corpo_site div:hover{
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    width: 200px;
+}

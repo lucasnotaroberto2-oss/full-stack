@@ -1,7 +1,36 @@
 #cabecalho{
     display: flex;
     background-color: blanchedalmond;
+    border-style: solid;
+    border-color:  rgb(213, 163, 86);;
 }
 body{
     background-color: bisque;
+    text-align: center;
+}
+#cabecalho a{
+    text-decoration: none;
+    font-size: 100px;
+    color: black;
+    padding-left: 60px;
+}
+table{
+    border-style: solid;
+    border-color: rgb(213, 163, 86);
+}
+td{
+    border-style: solid;
+    border-color: rgb(239, 188, 111);
+    font-size: larger;
+}
+#linha1{
+    color: rgb(239, 188, 111);
+}
+.tabela{
+    display: flex;
+    justify-content: center;
+}
+table a{
+    text-decoration: none;
+    color: black;
 }
