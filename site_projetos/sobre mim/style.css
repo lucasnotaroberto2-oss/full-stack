@@ -1,0 +1,15 @@
+.cabecalho{
+    display: flex;
+    background-color: lightseagreen;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+}
+.cabecalho a{
+    text-decoration: none;
+    font-size: 100px;
+    color: black;
+    padding-left: 60px;
+}
+body{
+    background-image: url(../pag_inicial/background_paginicial.avif);
+    background-position: initial;
+}

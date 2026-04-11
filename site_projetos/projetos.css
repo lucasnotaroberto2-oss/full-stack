@@ -1,12 +1,12 @@
 #cabecalho{
     display: flex;
-    background-color: blanchedalmond;
-    border-style: solid;
-    border-color:  rgb(213, 163, 86);;
+    background-color: lightseagreen;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
 }
 body{
-    background-color: bisque;
+    background-color: aliceblue;
     text-align: center;
+    background-image: url(../site_projetos/pag_inicial/background_paginicial.avif);
 }
 #cabecalho a{
     text-decoration: none;
@@ -16,15 +16,17 @@ body{
 }
 table{
     border-style: solid;
-    border-color: rgb(213, 163, 86);
+    border-color: lightseagreen
 }
 td{
     border-style: solid;
-    border-color: rgb(239, 188, 111);
-    font-size: larger;
+    border-color: lightseagreen;
+    font-size: 30px;
+    padding: 10px;
+    background-color: white;
 }
 #linha1{
-    color: rgb(239, 188, 111);
+    color: lightseagreen;
 }
 .tabela{
     display: flex;
@@ -33,4 +35,8 @@ td{
 table a{
     text-decoration: none;
     color: black;
+}
+h1{
+    padding: 40px;
+    font-size: 40px;
 }

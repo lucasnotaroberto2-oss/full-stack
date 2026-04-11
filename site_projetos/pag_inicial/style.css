@@ -1,27 +1,41 @@
 body{
     text-align: center;
-    background-color: bisque;
+    background-color: aliceblue;
 }
 p{
     font-size: large;
 }
 img{
     padding: 10px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
 }
 .corpo_site{
-    background-color: blanchedalmond;
+    display: flex;
+    height: 100vh;
+    justify-content: space-between;
+}
+.parte1{
+    display: flex;
+    justify-content: center;
+    width: 110vh;
+    align-items: center;
+    background-image: url(background_paginicial.avif);
+}
+.parte2{
+    background-color:lightseagreen;
     display: flex;
     justify-content: center;
     flex-direction: column;
     padding: 20px;
     align-items: center;
+    width: 90vh;
 }
-.corpo_site div{
+.parte2 div{
     display: flex;
     justify-content: center;
     width: 180px;
     padding: 30px;
-    background-color: burlywood;
+    background-color: aliceblue;
     border-radius: 5px;
     font-size: larger;
 }
@@ -29,7 +43,7 @@ a{
     text-decoration: none;
     color: black;
 }
-.corpo_site div:hover{
+.parte2 div:hover{
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     width: 200px;
 }
