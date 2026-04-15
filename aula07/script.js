@@ -148,8 +148,3 @@ ctx3.fillStyle = "cyan";
 ctx3.arc(205,500,75,1.5*Math.PI,2.5*Math.PI);
 ctx3.fill();
 ctx3.closePath();
-
-
-
-
-

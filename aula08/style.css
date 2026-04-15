@@ -1,0 +1,11 @@
+body{
+    text-align: center;
+}
+#canvas1{
+    background-color: aquamarine;
+    border-style: solid;
+    border-color: black;
+}
+h1{
+    padding: 40px;
+}

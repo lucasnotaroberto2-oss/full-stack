@@ -1,4 +1,22 @@
+body{
+    text-align: center;
+}
 canvas{
     border-style: solid;
     border-color: black;
+}
+h1{
+    padding: 40px;
+}
+.cabecalho{
+    display: flex;
+    background-color: rgb(241, 210, 72);
+    border-style: solid;
+    border-color: rgb(230, 233, 55);
+}
+.cabecalho a{
+    text-decoration: none;
+    color: black;
+    font-size: 100px;
+    padding-left: 60px;
 }
