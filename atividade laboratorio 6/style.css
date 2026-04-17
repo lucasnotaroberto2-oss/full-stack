@@ -1,21 +1,19 @@
 body{
     text-align: center;
 }
-#canvas1{
+canvas{
     border-style: solid;
     border-color: black;
-}
-#canvas2{
-    background-color: aquamarine;
+    background-color: chartreuse;
 }
 h1{
     padding: 40px;
 }
 .cabecalho{
     display: flex;
-    background-color: rgb(241, 210, 72);
+    background-color: rgb(72, 204, 241);
     border-style: solid;
-    border-color: rgb(230, 233, 55);
+    border-color: rgb(55, 168, 233);
 }
 .cabecalho a{
     text-decoration: none;
