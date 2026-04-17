@@ -27,6 +27,13 @@ function circulo(cir){//função para desenhar circulos
     if(cir.color)ctx.fill();
     ctx.closePath()
 }
+function campo(){
+    quadrado(gol1);
+    quadrado(gol2);
+    linha(linha_1);
+    circulo(circulo_1);
+    circulo(circulo_2)
+}
 let gol1 = {
     w : 80,
     h : 40,
@@ -34,7 +41,6 @@ let gol1 = {
     y : 260,
     color : "white",
 }
-quadrado(gol1)
 let gol2 = {
     w : 80,
     h : 40,
@@ -42,7 +48,6 @@ let gol2 = {
     y : 0,
     color : "white",
 }
-quadrado(gol2)
 let linha_1 = {
     color : "white",
     x1 : 0,
@@ -50,7 +55,6 @@ let linha_1 = {
     x2 : 300,
     y2 : 150,
 }
-linha(linha_1)
 let circulo_1 = {
     stroke : "white",
     x : 150,
@@ -59,7 +63,6 @@ let circulo_1 = {
     ini : 1*Math.PI,
     fim : 3*Math.PI,
 }
-circulo(circulo_1)
 let circulo_2 = {
     stroke : "white",
     color : "white",
@@ -69,4 +72,33 @@ let circulo_2 = {
     ini : 1*Math.PI,
     fim : 3*Math.PI,
 }
-circulo(circulo_2)
+let bola = {
+    x : 150,
+    y : 150,
+    r : 20,
+    img : new Image(),
+    desenha : function(){
+        this.img.src = 'bola.png';
+        ctx.beginPath();
+        ctx.drawImage(this.img,this.x - this.r,this.y - this.r,2*this.r,2*this.r);
+        ctx.closePath()
+    }
+}
+function animacao(){
+    ctx.clearRect(0,0,300,300);
+    campo();//redesenha o capo toda vez que ele é apagado
+    bola.desenha();//redesenha a bola
+    requestAnimationFrame(animacao)
+}
+animacao();//fazer a animação de limites com o professor em aula
+document.addEventListener('mousemove',function(evento){
+    let rect = canvas.getBoundingClientRect();
+    let x_mouse = evento.clientX - rect.left;
+    let y_mouse = evento.clientY - rect.top;
+    bola.x = x_mouse;
+    bola.y = y_mouse;
+    if(x_mouse < 12){bola.x = 12}
+    else if(x_mouse > 288){bola.x = 288}
+    if(y_mouse < 12){bola.y = 12}
+    else if(y_mouse > 288){bola.y = 288}
+})
