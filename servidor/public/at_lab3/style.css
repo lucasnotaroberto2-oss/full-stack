@@ -1,0 +1,96 @@
+body{
+    text-align: center;
+    background-color:rgb(209, 222, 229);
+}
+h1{
+    font-size: 30px;
+}
+p{
+    font-size: larger;
+    color: purple;
+}
+img{
+    margin: 30px;
+}
+iframe{
+    margin-left: 30px;
+    margin-right: 30px;
+}
+.cabecalho{
+    display: flex;
+    justify-content: space-between;
+    border-style: solid;
+    border-color: blue;
+    background-color: beige;
+}
+#texto_cabecalho{
+    font-size: 40px;
+    color: rgb(15, 89, 15);
+    align-content: center;
+}
+.img_cabecalho{
+    margin-left: 30px;
+    margin-right: 30px;
+}
+.subtitulo{
+    display: flex;
+    background-color:rgb(78, 194, 237);
+    justify-content: center;
+    height: 50px;
+}
+.subtitulo a{
+    color: brown;
+    margin-left: 30px;
+    margin-right: 30px;
+    align-content: center;
+}
+.tabela{
+    display: flex;
+    justify-content: center;
+}
+table{
+    border-style: dotted;
+    border-color: brown;
+}
+#linha1{
+    color: brown;
+}
+td{
+    border-style: solid;
+    border-color: brown;
+}
+.links{
+    display: flex;
+    justify-content: center;
+    padding: 60px;
+}
+.links1{
+    display: flex;
+    background-color: rgb(203, 216, 56);
+}
+.links1 div{
+    justify-content: center;
+    flex-direction: column;
+    align-content: space-around;
+}
+#x{
+    color: black;
+    font-size: large;
+}
+.links1 div a{
+    color: brown;
+    margin-right: 30px;
+    margin-left: 30px;
+}
+.rodape{
+    display: flex;
+    justify-content: space-between;
+    background-color: beige;
+}
+.rodape div{
+    align-content: center;
+    font-size: larger;
+}
+.rodape p{
+    color: black;
+}

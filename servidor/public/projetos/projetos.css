@@ -1,0 +1,46 @@
+#cabecalho{
+    display: flex;
+    background-color: lightseagreen;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+}
+body{
+    background-color: aliceblue;
+    text-align: center;
+    background-image: url(../pag_inicial/background_paginicial.avif);
+}
+#cabecalho a{
+    text-decoration: none;
+    font-size: 100px;
+    color: black;
+    padding-left: 60px;
+}
+table{
+    border-style: solid;
+    border-color: lightseagreen
+}
+td{
+    border-style: solid;
+    border-color: lightseagreen;
+    font-size: 30px;
+    padding: 10px;
+    background-color: white;
+}
+#linha1{
+    color: lightseagreen;
+}
+.tabela{
+    display: flex;
+    justify-content: center;
+}
+table a{
+    text-decoration: none;
+    color: black;
+}
+table a:hover{
+    text-decoration: underline;
+    color: brown;
+}
+h1{
+    padding: 40px;
+    font-size: 40px;
+}
