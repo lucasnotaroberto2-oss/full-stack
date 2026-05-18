@@ -1,0 +1,15 @@
+body{
+    text-align: center;
+}
+.cabecalho{
+    display: flex;
+    background-color: rgb(72, 241, 207);
+    border-style: solid;
+    border-color: rgb(93, 175, 194);
+}
+.cabecalho a{
+    text-decoration: none;
+    color: black;
+    font-size: 100px;
+    padding-left: 60px;
+}

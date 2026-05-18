@@ -21,6 +21,7 @@
   "dependencies": {
     "ejs": "^5.0.2",
     "express": "^5.2.1",
-    "http": "^0.0.1-security"
+    "http": "^0.0.1-security",
+    "mongodb": "4.12"
   }
 }
