@@ -17,6 +17,9 @@ diamante.src = "../imagens/coletaveis/diamante.png"
 
 let moeda = new Image();
 moeda.src = "../imagens/coletaveis/moeda.png"
+
+let espinho = new Image();
+espinho.src = "../"
 //----------------------------------------------------------------------
 function quadrado(qua){
     if(!qua){
