@@ -3,6 +3,20 @@ let canvas = document.getElementById("canvas1")
 let ctx = canvas.getContext("2d")
 //---------imagens------------------------------------------------------
 
+let background1 = new Image();
+background1.src = "../imagens/backgrounds/background_inicial.png"
+
+let arm_hor = new Image();
+arm_hor.src = "../imagens/armadilhas/armadilha_horizontal.png"
+
+let img_coracao = new Image();
+img_coracao.src = "../imagens/coletaveis/coracao.png"
+
+let diamante = new Image();
+diamante.src = "../imagens/coletaveis/diamante.png"
+
+let moeda = new Image();
+moeda.src = "../imagens/coletaveis/moeda.png"
 //----------------------------------------------------------------------
 function quadrado(qua){
     if(!qua){
@@ -159,6 +173,14 @@ function desenhar(){
 }
 //-------cenario inicial--------------------------------------------------
 function cenario_inicial(){
+    quadrado(background_cenario_inicial)
+}
+let background_cenario_inicial = {
+    x : 0,
+    y : 0,
+    w : 600,
+    h : 400,
+    img : background1
 }
 //-------cenario1---------------------------------------------------------
 function cenario_1(){
@@ -227,21 +249,21 @@ let armadilha_hor1_c1 = {
     y : 120,
     w : 40,
     h : 40,
-    color : "grey"
+    img : arm_hor
 }
 let armadilha_hor2_c1 = {
     x : 300,
     y : 20,
     w : 40,
     h : 40,
-    color : "grey"
+    img : arm_hor
 }
 let estrela1 = {
     x : 380,
     y : 20,
     w : 50,
     h : 50,
-    color : "yellow"
+    img : moeda
 }
 //-------cenario2---------------------------------------------------------
 function cenario_2(){
@@ -257,16 +279,16 @@ function cenario_2(){
     hitbox(p5_c2)
     hitbox(p6_c2)
     hitbox(p7_c2)
-    armadilha_subida(armadilha_vert1_c2,340,450,1.1)
-    armadilha_subida(armadilha_vert2_c2,340,450,1.2)
-    armadilha_subida(armadilha_vert3_c2,340,450,1.3)
+    armadilha_subida(armadilha_vert1_c2,340,450,0.5)
+    armadilha_subida(armadilha_vert2_c2,340,450,0.6)
+    armadilha_subida(armadilha_vert3_c2,340,450,0.7)
 }
 let estrela2 = {
     x : 40,
     y : 50,
     w : 50,
     h : 50,
-    color : "yellow"
+    img : moeda
 }
 let background_c2 = {
     x : 0,
@@ -416,7 +438,7 @@ let estrela3 = {
     y : 5,
     w : 40,
     h : 40,
-    color : "yellow"
+    img : moeda
 }
 let plat_movel = {
     x : 350,
@@ -531,7 +553,7 @@ let background_c5 = {
     y:0,
     w:600,
     h:400,
-    color:"orange"
+    color : "orange"
 }
 let p1_c5 = {
     x : 0,
@@ -573,7 +595,7 @@ let flor_templo = {
     y :270,
     w:60,
     h:60,
-    color:"cyan"
+    img : diamante
 }
 //-------personagens------------------------------------------------------
 let personagem = {
@@ -635,21 +657,21 @@ let vida1 = {
     y : 20,
     w : 20,
     h : 20,
-    color : "red"
+    img : img_coracao
 }
 let vida2 = {
     x : 60,
     y : 20,
     w : 20,
     h : 20,
-    color : "red"
+    img : img_coracao
 }
 let vida3 = {
     x : 100,
     y : 20,
     w : 20,
     h : 20,
-    color : "red"
+    img : img_coracao
 }
 
 let vida = 3
@@ -673,21 +695,21 @@ let estrela1_hud = {
     y : 20,
     w : 20,
     h : 20,
-    color : "yellow"
+    img : moeda
 }
 let estrela2_hud = {
     x : 520,
     y : 20,
     w : 20,
     h : 20,
-    color : "yellow"
+    img : moeda
 }
 let estrela3_hud = {
     x : 480,
     y : 20,
     w : 20,
     h : 20,
-    color : "yellow"
+    img : moeda
 }
 estrelas = 0
 function coletar_estrela(){
