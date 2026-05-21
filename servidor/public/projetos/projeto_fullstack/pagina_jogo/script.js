@@ -18,6 +18,9 @@ diamante.src = "../imagens/coletaveis/diamante.png"
 let moeda = new Image();
 moeda.src = "../imagens/coletaveis/moeda.png"
 
+let moeda_animacao = new Image();
+moeda_animacao.src = "../imagens/coletaveis/moeda2.png"
+
 let espinho = new Image();
 espinho.src = "../imagens/armadilhas/armadilha_espinho.png"
 
@@ -41,6 +44,9 @@ bau_img.src = "../imagens/coletaveis/bau_aberto.png"
 
 let bau_fechado_img = new Image();
 bau_fechado_img.src = "../imagens/coletaveis/bau_fechado.png"
+
+let imagem_dungeon = new Image();
+imagem_dungeon.src = "../imagens/backgrounds/imagem_background.png"
 //----------------------------------------------------------------------
 function quadrado(qua){
     if(!qua){
@@ -60,6 +66,15 @@ function escrevermensagem(mensagem,x,y){
     ctx.fillText(mensagem, x, y);
 }
 
+function colisao(a,b){
+    return (
+        a.x < b.x + b.w &&
+        a.x + a.w > b.x &&
+        a.y < b.y + b.h &&
+        a.y + a.h > b.y
+    )
+}
+
 function hitbox(obs){
     quadrado(obs)
     if(personagem.y + personagem.h >= obs.y && personagem.y + personagem.h <= obs.y + obs.h ){
@@ -69,14 +84,6 @@ function hitbox(obs){
             chao = true
         }
     }
-}
-function colisao(a,b){
-    return (
-        a.x < b.x + b.w &&
-        a.x + a.w > b.x &&
-        a.y < b.y + b.h &&
-        a.y + a.h > b.y
-    )
 }
 
 let dir = 1
@@ -142,6 +149,21 @@ function plataforma_movel(obs,x1,x2){
     if(obs.x<=x1){z = 1}
     if(obs.x + obs.w>=x2){z = -1}
     obs.x += 1 * z
+}
+
+let vel_estrela = 1
+function animar_estrela(obs,x1,x2){
+    if(!obs){ return } 
+    quadrado(obs)
+    if(obs.y <= x1){
+        vel_estrela = 1
+        obs.img = moeda
+    }
+    else if(obs.y >= x2){
+        vel_estrela = -1
+        obs.img = moeda_animacao
+    }
+    obs.y += 0.3 * vel_estrela
 }
 //------fases----------------------------------------------------------------------
 let contador_fases = 0
@@ -241,14 +263,14 @@ function cenario_1(){
     armadilha_subida(armadilha_vert_c1,220,400,1)
     armadilha_horizontal(armadilha_hor1_c1,50,450,1)
     armadilha_horizontal(armadilha_hor2_c1,90,530,2)
-    quadrado(estrela1)
+    animar_estrela(estrela1,10,40)
 }
 let background_c1 = {
     x : 0,
     y : 0,
     w : 600,
     h : 400,
-    color : "orange"
+    img : imagem_dungeon
 }
 let p1_c1 = {
     x : 0,
@@ -316,7 +338,7 @@ let estrela1 = {
 //-------cenario2---------------------------------------------------------
 function cenario_2(){
     quadrado(background_c2)
-    quadrado(estrela2)
+    animar_estrela(estrela2,40,60)
     armadilha_dados(dardo1_c2,225)
     armadilha_dados(dardo2_c2,170)
     armadilha_dados(dardo3_c2,190)
@@ -343,7 +365,7 @@ let background_c2 = {
     y : 0,
     w : 600,
     h : 400,
-    color : "orange"
+    img : imagem_dungeon
 }
 let p1_c2 = {
     x : 0,
@@ -439,7 +461,7 @@ let dardo3_c2 = {
 //------cenario3---------------------------------------------------------
 function cenario_3(){
     quadrado(background_c3)
-    quadrado(estrela3)
+    animar_estrela(estrela3,0,15)
     hitbox(p1_c3)
     hitbox(p2_c3)
     hitbox(p3_c3)
@@ -451,7 +473,7 @@ let background_c3 = {
     y : 0,
     w : 600,
     h : 400,
-    color : "orange"
+    img : imagem_dungeon
 }
 let p1_c3 = {
     x : 0,
@@ -514,7 +536,7 @@ let background_c4 = {
     y : 0,
     w : 600,
     h : 400,
-    color : "orange"
+    img : imagem_dungeon
 }
 let plat1 = {
     x : 0,
@@ -606,7 +628,7 @@ let background_c5 = {
     y:0,
     w:600,
     h:400,
-    color : "orange"
+    img : imagem_dungeon
 }
 let p1_c5 = {
     x : 0,
@@ -641,14 +663,14 @@ let bau = {
     y:330,
     w:50,
     h:50,
-    img : bau_img
+    img : bau_fechado_img
 }
 let bau_aberto = {
     x:425,
     y:330,
     w:50,
     h:50,
-    img : bau_fechado_img
+    img : bau_img
 }
 let flor_templo = {
     x : 420,
