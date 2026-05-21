@@ -14,27 +14,27 @@ app.set('views', './views');
 //conexão com o banco de dados
 var mongodb = require("mongodb");
 const MongoClient = mongodb.MongoClient;
-const uri = "mongodb+srv://lucas_queiroz:T1hLAN976hK5h3md@cluster0.v0wgphd.mongodb.net/?appName=Cluster0";
+const uri = "mongodb+srv://lucas_queiroz:Il8YZbH0QJdZwcw4@cluster0.v0wgphd.mongodb.net/?appName=Cluster0";
 const client = new MongoClient(uri, {useNewUrlparser: true });
 var dbo = client.db("exemplo_bd");
 var posts = dbo.collection("posts");
 
 //atividade de laboratorio num 9
 app.get("/redirect",function(req, res){
-    res.render("blog.ejs")
+    posts.find().toArray(function (err, items){
+        var qtde = items.length
+        console.log(qtde)
+        res.render("blog.ejs",{resposta : items,qtde})
+    })
 });
 //sempre que for um link deve-se usar o metodo get, não post
-app.post('/criar_post', async function(req,res){
-    var data = {
+app.post('/criar_post', function(req,res){
+    data = {
         db_titulo: req.body.titulo_post,
         db_resumo: req.body.resumo_post,
         db_conteudo: req.body.conteudo_post
     };
-    await posts.insertOne(data);
-    var resultado = await posts.find().toArray();
-    res.render("blog.ejs", {
-        resposta: resultado
-    });
+    posts.insertOne(data);
 });
 
 //atividade de laboratorio num 8

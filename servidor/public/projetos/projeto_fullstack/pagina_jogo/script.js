@@ -19,7 +19,28 @@ let moeda = new Image();
 moeda.src = "../imagens/coletaveis/moeda.png"
 
 let espinho = new Image();
-espinho.src = "../"
+espinho.src = "../imagens/armadilhas/armadilha_espinho.png"
+
+let dardo = new Image();
+dardo.src = "../imagens/armadilhas/dardo.png"
+
+let movimento_direita = new Image();
+movimento_direita.src = "../imagens/personagem/movimento_direita.png"
+
+let movimento_esquerda = new Image();
+movimento_esquerda.src = "../imagens/personagem/movimento_esquerda.png"
+
+let luz = new Image();
+luz.src = "../imagens/coletaveis/luz.png"
+
+let coracao_perdido = new Image();
+coracao_perdido.src = "../imagens/coletaveis/coracao_perdido.png"
+
+let bau_img = new Image();
+bau_img.src = "../imagens/coletaveis/bau_aberto.png"
+
+let bau_fechado_img = new Image();
+bau_fechado_img.src = "../imagens/coletaveis/bau_fechado.png"
 //----------------------------------------------------------------------
 function quadrado(qua){
     if(!qua){
@@ -177,6 +198,9 @@ function desenhar(){
 //-------cenario inicial--------------------------------------------------
 function cenario_inicial(){
     quadrado(background_cenario_inicial)
+    quadrado(habitante_vila1)
+    quadrado(habitante_vila2)
+    quadrado(habitante_vila3)
 }
 let background_cenario_inicial = {
     x : 0,
@@ -184,6 +208,27 @@ let background_cenario_inicial = {
     w : 600,
     h : 400,
     img : background1
+}
+let habitante_vila1 = {
+    x : 430,
+    y : 360,
+    w : 40,
+    h : 40,
+    color : "yellow"
+}
+let habitante_vila2 = {
+    x : 270,
+    y : 360,
+    w : 40,
+    h : 40,
+    color : "yellow"
+}
+let habitante_vila3 = {
+    x : 520,
+    y : 360,
+    w : 40,
+    h : 40,
+    color : "yellow"
 }
 //-------cenario1---------------------------------------------------------
 function cenario_1(){
@@ -245,7 +290,7 @@ let armadilha_vert_c1 = {
     y : 350,
     w : 30,
     h : 180,
-    color: "grey"
+    img : espinho
 }
 let armadilha_hor1_c1 = {
     x : 250,
@@ -354,42 +399,42 @@ let armadilha_vert1_c2 = {
     y : 400,
     w : 25,
     h : 60,
-    color : "grey"
+    img : espinho
 }
 let armadilha_vert2_c2 = {
     x : 275,
     y : 400,
     w : 25,
     h : 60,
-    color : "grey"
+    img : espinho
 }
 let armadilha_vert3_c2 = {
     x : 375,
     y : 400,
     w : 25,
     h : 60,
-    color : "grey"
+    img : espinho
 }
 let dardo1_c2 = {
     x : 150,
     y : 0,
     w : 25,
     h : 25,
-    color : "green"
+    img : dardo
 }
 let dardo2_c2 = {
     x : 250,
     y : 0,
     w : 25,
     h : 25,
-    color : "green"
+    img : dardo
 }
 let dardo3_c2 = {
     x : 350,
     y : 0,
     w : 25,
     h : 25,
-    color : "green"
+    img : dardo
 }
 //------cenario3---------------------------------------------------------
 function cenario_3(){
@@ -504,35 +549,35 @@ let dardo1 = {
     y : 0,
     w : 30,
     h : 30,
-    color : "green"
+    img : dardo
 }
 let dardo2 = {
     x : 300,
     y : 0,
     w : 30,
     h : 30,
-    color : "green"
+    img : dardo
 }
 let dardo3 = {
     x : 340,
     y : 0,
     w : 30,
     h : 30,
-    color : "green"
+    img : dardo
 }
 let dardo4 = {
     x : 380,
     y : 0,
     w : 30,
     h : 30,
-    color : "green"
+    img : dardo
 }
 let dardo5 = {
     x : 420,
     y : 0,
     w : 30,
     h : 30,
-    color : "green"
+    img : dardo
 }
 let plat4 = {
     x : 270,
@@ -548,8 +593,13 @@ function cenario_5(){
     hitbox(p2_c5)
     hitbox(p3_c5)
     hitbox(p4_c5)
-    quadrado(altar)
-    quadrado(flor_templo)
+    quadrado(bau)
+    if(estrelas == 3){
+        bau = null
+        quadrado(flor_templo)
+        quadrado(luz_cima)
+        quadrado(bau_aberto)
+    }
 }
 let background_c5 = {
     x:0,
@@ -586,12 +636,19 @@ let p4_c5 = {
     h:20,
     color:"brown"
 }
-let altar = {
-    x:400,
+let bau = {
+    x:425,
     y:330,
-    w:100,
+    w:50,
     h:50,
-    color:"grey"
+    img : bau_img
+}
+let bau_aberto = {
+    x:425,
+    y:330,
+    w:50,
+    h:50,
+    img : bau_fechado_img
 }
 let flor_templo = {
     x : 420,
@@ -600,13 +657,20 @@ let flor_templo = {
     h:60,
     img : diamante
 }
+let luz_cima = {
+    x : 390,
+    y : -10,
+    w : 120,
+    h : 40,
+    img : luz
+}
 //-------personagens------------------------------------------------------
 let personagem = {
     x : 40,
-    y : 340,
+    y : 360,
     w : 40,
-    h : 60,
-    color : "yellow"
+    h : 40,
+    img : movimento_direita
 }
 //---------movimentação-------------------------------------------------------
 let vertical = 0;
@@ -623,9 +687,9 @@ function pulo(){ //inicializa o pulo
 function pulo_ar(){ //prossegue com a ação do pulo
     vertical += gravidade
     personagem.y += vertical
-    if(personagem.y >= 340){ //descida
+    if(personagem.y >= 360){ //descida
         vertical = 0
-        personagem.y = 340
+        personagem.y = 360
         chao = true
     }
 }
@@ -639,17 +703,17 @@ loop()
 
 document.addEventListener("keydown",function(evento){
     var tecla = evento.key;
-    var velocidadey = 0
     var velocidadex = 8
-    if(personagem.y == 340){velocidadey}
     if(tecla == "a" && personagem.x == 0){velocidadex = 0}
     if(tecla == "d" && personagem.x >= 560){velocidadex = 0}
     if(tecla == "w"){ pulo() }
     if(tecla == "d"){ 
         personagem.x += velocidadex
+        personagem.img = movimento_direita
     }
     if(tecla == "a"){ 
         personagem.x -= velocidadex 
+        personagem.img = movimento_esquerda
     }
 })
 
@@ -669,12 +733,26 @@ let vida2 = {
     h : 20,
     img : img_coracao
 }
+let vida2_hub = {
+    x : 60,
+    y : 20,
+    w : 20,
+    h : 20,
+    img : coracao_perdido
+}
 let vida3 = {
     x : 100,
     y : 20,
     w : 20,
     h : 20,
     img : img_coracao
+}
+let vida3_hub = {
+    x : 100,
+    y : 20,
+    w : 20,
+    h : 20,
+    img : coracao_perdido
 }
 
 let vida = 3
@@ -687,9 +765,12 @@ function perda_vida(){
     else if(vida == 2){
         quadrado(vida1)
         quadrado(vida2)
+        quadrado(vida3_hub)
     }
     else if(vida == 1){
         quadrado(vida1)
+        quadrado(vida2_hub)
+        quadrado(vida3_hub)
     }
 }
 //------sistema de coletaveis--------------------------------------------------------------------------------

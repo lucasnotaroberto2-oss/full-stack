@@ -11,6 +11,12 @@
         <input type="button" value="Criar Post">
     </a>
     <p></p>
-    <p><%= resposta %></p>
+    <% for(let i = 0; i <= 26; i++){ %> 
+        <div>
+            <%= resposta[i].db_titulo %>
+            <%= resposta[i].db_resumo %>
+            <%= resposta[i].db_conteudo %>
+        </div>
+    <% } %>
 </body>
 </html>
