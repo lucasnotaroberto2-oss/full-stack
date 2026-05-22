@@ -33,9 +33,6 @@ movimento_direita.src = "../imagens/personagem/movimento_direita.png"
 let movimento_esquerda = new Image();
 movimento_esquerda.src = "../imagens/personagem/movimento_esquerda.png"
 
-let luz = new Image();
-luz.src = "../imagens/coletaveis/luz.png"
-
 let coracao_perdido = new Image();
 coracao_perdido.src = "../imagens/coletaveis/coracao_perdido.png"
 
@@ -47,6 +44,15 @@ bau_fechado_img.src = "../imagens/coletaveis/bau_fechado.png"
 
 let imagem_dungeon = new Image();
 imagem_dungeon.src = "../imagens/backgrounds/imagem_background.png"
+
+let habitante1 = new Image();
+habitante1.src = "../imagens/personagem/habitante1.png"
+
+let habitante2 = new Image();
+habitante2.src = "../imagens/personagem/habitante2.png"
+
+let habitante3 = new Image();
+habitante3.src = "../imagens/personagem/habitante3.png"
 //----------------------------------------------------------------------
 function quadrado(qua){
     if(!qua){
@@ -209,6 +215,7 @@ function desenhar(){
         quadrado(personagem)
     }
     else{
+        estrelas = 0
         vida = 3
         contador_fases = 0
         personagem.x = 40
@@ -236,21 +243,21 @@ let habitante_vila1 = {
     y : 360,
     w : 40,
     h : 40,
-    color : "yellow"
+    img : habitante1
 }
 let habitante_vila2 = {
     x : 270,
     y : 360,
     w : 40,
     h : 40,
-    color : "yellow"
+    img : habitante2
 }
 let habitante_vila3 = {
     x : 520,
     y : 360,
     w : 40,
     h : 40,
-    color : "yellow"
+    img : habitante3
 }
 //-------cenario1---------------------------------------------------------
 function cenario_1(){
@@ -263,7 +270,7 @@ function cenario_1(){
     armadilha_subida(armadilha_vert_c1,220,400,1)
     armadilha_horizontal(armadilha_hor1_c1,50,450,1)
     armadilha_horizontal(armadilha_hor2_c1,90,530,2)
-    animar_estrela(estrela1,10,40)
+    if(estrela1.estado){animar_estrela(estrela1,10,40)} 
 }
 let background_c1 = {
     x : 0,
@@ -333,12 +340,12 @@ let estrela1 = {
     y : 20,
     w : 50,
     h : 50,
-    img : moeda
+    img : moeda,
+    estado : true
 }
 //-------cenario2---------------------------------------------------------
 function cenario_2(){
     quadrado(background_c2)
-    animar_estrela(estrela2,40,60)
     armadilha_dados(dardo1_c2,225)
     armadilha_dados(dardo2_c2,170)
     armadilha_dados(dardo3_c2,190)
@@ -352,13 +359,15 @@ function cenario_2(){
     armadilha_subida(armadilha_vert1_c2,340,450,0.5)
     armadilha_subida(armadilha_vert2_c2,340,450,0.6)
     armadilha_subida(armadilha_vert3_c2,340,450,0.7)
+    if(estrela2.estado){animar_estrela(estrela2,40,60)}
 }
 let estrela2 = {
     x : 40,
     y : 50,
     w : 50,
     h : 50,
-    img : moeda
+    img : moeda,
+    estado : true
 }
 let background_c2 = {
     x : 0,
@@ -461,12 +470,12 @@ let dardo3_c2 = {
 //------cenario3---------------------------------------------------------
 function cenario_3(){
     quadrado(background_c3)
-    animar_estrela(estrela3,0,15)
     hitbox(p1_c3)
     hitbox(p2_c3)
     hitbox(p3_c3)
     hitbox(p4_c3)
     plataforma_movel(plat_movel,275,550)
+    if(estrela3.estado){animar_estrela(estrela3,0,15)}
 }
 let background_c3 = {
     x : 0,
@@ -508,7 +517,8 @@ let estrela3 = {
     y : 5,
     w : 40,
     h : 40,
-    img : moeda
+    img : moeda,
+    estado : true
 }
 let plat_movel = {
     x : 350,
@@ -619,7 +629,6 @@ function cenario_5(){
     if(estrelas == 3){
         bau = null
         quadrado(flor_templo)
-        quadrado(luz_cima)
         quadrado(bau_aberto)
     }
 }
@@ -678,13 +687,6 @@ let flor_templo = {
     w:60,
     h:60,
     img : diamante
-}
-let luz_cima = {
-    x : 390,
-    y : -10,
-    w : 120,
-    h : 40,
-    img : luz
 }
 //-------personagens------------------------------------------------------
 let personagem = {
@@ -820,21 +822,21 @@ let estrela3_hud = {
 estrelas = 0
 function coletar_estrela(){
     if(contador_fases == 1){
-        if(estrela1 && colisao(personagem,estrela1)){
+        if(estrela1.estado && colisao(personagem,estrela1)){
             estrelas += 1
-            estrela1 = null
-        }    
+            estrela1.estado = false
+        }   
     }
     if(contador_fases == 2){
-        if(estrela2 && colisao(personagem,estrela2)){
+        if(estrela2.estado && colisao(personagem,estrela2)){
             estrelas += 1
-            estrela2 = null
+            estrela2.estado = false 
         }
     }
     if(contador_fases == 3){
-        if(estrela3 && colisao(personagem,estrela3)){
+        if(estrela3.estado && colisao(personagem,estrela3)){
             estrelas += 1
-            estrela3 = null
+            estrela3.estado = false
         }
     }
     if(estrelas >= 1){
@@ -846,5 +848,11 @@ function coletar_estrela(){
     if(estrelas >= 3){
         quadrado(estrela3_hud)
     }
+    if(estrelas == 0){
+        if(contador_fases == 1){estrela1.estado = true}
+        if(contador_fases == 2){estrela2.estado = true}
+        if(contador_fases == 3){estrela3.estado = true}
+    }
 }
+//--------função de botao reset------------------
 desenhar()
