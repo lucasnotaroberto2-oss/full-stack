@@ -822,19 +822,19 @@ let estrela3_hud = {
 estrelas = 0
 function coletar_estrela(){
     if(contador_fases == 1){
-        if(estrela1.estado && colisao(personagem,estrela1)){
+        if(estrela1 && colisao(personagem,estrela1)){
             estrelas += 1
             estrela1.estado = false
         }   
     }
     if(contador_fases == 2){
-        if(estrela2.estado && colisao(personagem,estrela2)){
+        if(estrela2 && colisao(personagem,estrela2)){
             estrelas += 1
             estrela2.estado = false 
         }
     }
     if(contador_fases == 3){
-        if(estrela3.estado && colisao(personagem,estrela3)){
+        if(estrela3 && colisao(personagem,estrela3)){
             estrelas += 1
             estrela3.estado = false
         }
@@ -856,3 +856,5 @@ function coletar_estrela(){
 }
 //--------função de botao reset------------------
 desenhar()
+
+//resolver o problema das estrelas

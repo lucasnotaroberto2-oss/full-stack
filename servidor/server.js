@@ -23,7 +23,6 @@ var posts = dbo.collection("posts");
 app.get("/redirect",function(req, res){
     posts.find().toArray(function (err, items){
         var qtde = items.length
-        console.log(qtde)
         res.render("blog.ejs",{resposta : items,qtde})
     })
 });

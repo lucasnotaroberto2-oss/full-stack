@@ -1,0 +1,13 @@
+body{
+    background-color: azure;
+    text-align: center;
+}
+.post{
+    display: flex;
+    background-color: aliceblue;
+    border-style: solid;
+    border-color: black;
+    border-radius: 5px;
+    justify-content:left;
+    flex-direction: column;
+}
